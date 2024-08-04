@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestra boda de oro 50 aniversario</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Roboto:wght@300&display=swap');
+
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+            background: #f0f0f0; /* Fondo gris claro para la página */
+        }
+
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Hace que el video cubra todo el área */
+            z-index: -1; /* Coloca el video detrás del contenido */
+            overflow: hidden; /* Evita barras de desplazamiento por el video */
+        }
+
+        .invitation-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px; /* Espacio alrededor de las tarjetas */
+            min-height: 100vh; /* Altura mínima para asegurar que el contenido se ajuste a la ventana */
+            box-sizing: border-box;
+            position: relative; /* Necesario para posicionar el contenedor del video en el fondo */
+            z-index: 1; /* Asegura que las tarjetas estén en frente del video */
+            overflow-y: auto; /* Permite el desplazamiento vertical */
+        }
+
+        .invitation-content {
+            background: rgba(255, 255, 255, 0.8); /* Fondo blanco con opacidad para legibilidad del texto */
+            padding: 30px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 2s ease-in-out;
+            display: none; /* Ocultar por defecto */
+            margin-bottom: 20px; /* Espacio inferior entre las tarjetas */
+        }
+
+        .title {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.5em;
+            margin: 0;
+            color: #d4af37; /* Color dorado */
+        }
+
+        .bride-groom {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3em;
+            margin: 0;
+            color: #8e44ad;
+        }
+
+        .invitation-text, .date, .time, .location, .rsvp {
+            margin: 10px 0;
+            font-size: 1.2em;
+            color: #555;
+        }
+
+        .rsvp-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #d4af37; /* Color dorado */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .rsvp-button:hover {
+            background: #b8860b; /* Color dorado oscuro */
+        }
+
+        .address-image, .additional-image {
+            margin-top: 15px;
+            cursor: pointer;
+            width: 80px; /* Tamaño ajustado de la imagen */
+            height: auto; /* Mantener proporciones */
+        }
+
+        .addimage {
+            margin-top: 15px;
+            cursor: pointer;
+            border-radius: 20px;
+            width: 400px; /* Tamaño ajustado de la imagen */
+            height: auto; /* Mantener proporciones */  
+        }
+
+        .arrow-button {
+            margin: 20px;
+            background: transparent;
+            border: none;
+            font-size: 1.5em; /* Tamaño de fuente reducido */
+            cursor: pointer;
+            color: #555;
+            transition: color 0.3s ease;
+        }
+
+        .arrow-button:hover {
+            color: #8e44ad; /* Color al pasar el mouse */
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <video class="video-background" autoplay muted loop>
+        <source src="paisajes.mp4" type="video/mp4">
+        Tu navegador no soporta la etiqueta de video.
+    </video>
+
+    <div class="invitation-container">
+        <!-- Primer tarjeta -->
+        <div class="invitation-content" id="invitation1">
+            <h1 class="title">Nuestra boda de oro 50 aniversario</h1>
+            <h2 class="bride-groom">Tere & Roberto</h2>
+            <p class="invitation-text">Hace 50 años llegamos ante Ti, llenos de ilusiones y alegrías a pedirte que con tu gran amor de Padre bendijeras nuestra unión.</p>
+            <p class="invitation-text">Hoy te decimos gracias Señor por todo lo que nos has dado.</p>
+            <p class="invitation-text">Te pedimos que pertenezcas siempre con nosotros, para que unidos a ti, lleguemos al final de nuestro camino y podamos decirte.</p>
+            <p class="invitation-text"> ¡¡¡ Padre, hemos cumplido !!!</p>
+            <button class="rsvp-button" onclick="showNextInvitation(2)">SIGUIENTE</button>
+        </div>
+
+        <!-- Segunda tarjeta -->
+        <div class="invitation-content" id="invitation2">
+            <h1 class="title">Lugar Del Evento</h1>
+            <h2 class="bride-groom">Tere & Roberto</h2>
+            <p class="invitation-text">Los invitamos cordialmente a celebrar nuestro 50 Aniversario</p>
+            <p class="invitation-text">Sábado 14 de Septiembre del 2024</p>
+            <p class="invitation-text">Salón: "Quinta los Fresnos" 6:00 P.M. C. 5.- Cda de Juarez, Jaltipa, San Mateo Ixtapacalco</p>
+            <p class="invitation-text">Presiona la imagen para ver la dirección:</p>
+            <a href="https://www.google.com/maps/place/Quinta+Los+Fresnos/@19.7021076,-99.1859334,18z/data=!4m6!3m5!1s0x85d1f559de1f3623:0xa17ad62cf4ea147f!8m2!3d19.7021536!4d-99.1859391!16s%2Fg%2F1pv5xh07n?entry=ttu" target="_blank">
+                <img src="maps.png" alt="Mapa del evento" class="address-image">
+            </a>
+            <p>Foto de la entrada del salon:</p>
+            <img src="lugar.png" alt="Imagen adicional" class="addimage">
+            <p></p>
+            <button class="arrow-button" onclick="showNextInvitation(1)">&#8592; Anterior</button>
+            <button class="rsvp-button" onclick="showNextInvitation(3)">SIGUIENTE</button>
+        </div>
+
+        <!-- Tercera tarjeta -->
+        <div class="invitation-content" id="invitation3">
+            <h1 class="title">Detalles importantes</h1>
+            <h2 class="bride-groom">Tere & Roberto</h2>
+            <p class="invitation-text">En este día tan especial el mayor regalo es tu compañia, si deseas obsequiarnos algo nos encantaria que Fuera en efectivo colocandolo dentro de un sobre que se te entregara al llegar al evento, el sobre lo podras depositar en un cofre que encontraras en la Fiesta.</p>
+            <p class="invitation-text">¡Estamos ansiosos de celebrar contigo este día tan especial!</p>
+            <button class="arrow-button" onclick="showNextInvitation(2)">&#8592; Anterior</button>
+            <button class="rsvp-button">Confirmar Asistencia</button>
+        </div>
+    </div>
+
+    <script>
+        function showNextInvitation(nextId) {
+            // Oculta todas las tarjetas
+            var invitations = document.querySelectorAll('.invitation-content');
+            invitations.forEach(function(invitation) {
+                invitation.style.display = 'none';
+            });
+
+            // Muestra la tarjeta siguiente
+            var nextInvitation = document.getElementById('invitation' + nextId);
+            if (nextInvitation) {
+                nextInvitation.style.display = 'block';
+            }
+        }
+
+        // Muestra la primera tarjeta al cargar
+        document.addEventListener('DOMContentLoaded', function() {
+            showNextInvitation(1); // Muestra la primera tarjeta
+        });
+    </script>
+</body>
+</html>
